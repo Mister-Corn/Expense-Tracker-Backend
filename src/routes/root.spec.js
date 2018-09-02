@@ -39,7 +39,7 @@ describe('root ROUTES:', () => {
         expect(true).toBeTruthy();
     });
 
-    it('Server accepts requests at root.', () => {
+    it('Root GET handler sends an appropriate response.', () => {
         // Act
         root.GET(req, res);
         // Assert

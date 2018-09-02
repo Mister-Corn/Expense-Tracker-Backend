@@ -1,11 +1,11 @@
 {
   "name": "Expense-Tracker-Back",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend for Expense-Tracker Project",
+  "main": "src/server.js",
   "scripts": {
     "start": "eslint src --ext .js && node src/server.js",
-    "test": "jest ./src --watch --verbose",
+    "test": "jest src --watch --verbose",
     "startmon": "nodemon src/server.js --exec 'eslint src --ext .js && node'",
     "sqlbudget": "sqlite3 src/budgets.db"
   },
