@@ -4,14 +4,14 @@ module.exports = {
     password: null,
     database: 'database_development',
     dialect: 'sqlite',
-    storage: 'test.db'
+    storage: 'src/db/dev.db'
   },
   test: {
     username: 'root',
     password: null,
     database: 'database_test',
     dialect: 'sqlite',
-    storage: 'test.db'
+    storage: 'src/db/test.db'
   },
   production: {
     username: 'root',

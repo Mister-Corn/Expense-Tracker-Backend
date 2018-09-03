@@ -6,8 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     amt_allocated: DataTypes.DECIMAL,
     owner_id: DataTypes.INTEGER
   }, {});
-  // Budget.associate = function(models) {
-  //   // associations can be defined here
-  // };
+  Budget.associate = function(models) {
+    Budget.belongsTo(models.User);
+    Budget.hasMany(models.Expense);
+  };
   return Budget;
 };

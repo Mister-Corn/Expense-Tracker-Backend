@@ -20,7 +20,7 @@ module.exports = {
       owner_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'User',
+          model: 'Users', // we use table names?!
           key: 'id',
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }

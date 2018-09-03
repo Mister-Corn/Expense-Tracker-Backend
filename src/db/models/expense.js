@@ -8,8 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     budget_id: DataTypes.INTEGER,
     cat_id: DataTypes.INTEGER
   }, {});
-  // Expense.associate = function(models) {
-  //   // associations can be defined here
-  // };
+  Expense.associate = function(models) {
+    Expense.belongsTo(models.Budget);
+    Expense.belongsTo(models.Category);
+  };
   return Expense;
 };

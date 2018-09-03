@@ -23,7 +23,7 @@ module.exports = {
       budget_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Budget',
+          model: 'Budgets', // we use table names?!
           key: 'id',
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
@@ -31,7 +31,7 @@ module.exports = {
       cat_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Category',
+          model: 'Categories', // we use table names?!
           key: 'id',
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
