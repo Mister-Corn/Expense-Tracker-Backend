@@ -1,4 +1,4 @@
-
+// blue
 exports.up = function(knex) {
   return knex.schema.createTable('expenses', (table) => {
     table.increments('id');

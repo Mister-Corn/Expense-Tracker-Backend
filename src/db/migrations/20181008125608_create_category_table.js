@@ -1,4 +1,4 @@
-
+// blah
 exports.up = function(knex) {
   return knex.schema.createTable('categories', (table) => {
     table.increments('id');

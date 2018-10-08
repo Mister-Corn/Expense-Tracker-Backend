@@ -1,4 +1,4 @@
-
+// blahsies
 exports.up = function(knex) {
     return knex.schema.createTable('budgets', (table) => {
         table.increments('id');
@@ -23,5 +23,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('budgets');
+    return knex.schema.dropTableIfExists('budgets');
 };
