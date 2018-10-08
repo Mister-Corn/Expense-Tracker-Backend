@@ -5,7 +5,7 @@ Backend for *Expense-Tracker* project.
 **Technologies**
 * Express
 * Sequelize
-* Sqlite3/Postgre
+* Sqlite3/PostgreSQL
 
 ---
 

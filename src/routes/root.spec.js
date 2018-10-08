@@ -12,7 +12,7 @@ describe('root ROUTES:', () => {
     // Mocking req & res objects
     let req;
     let res;
-    beforeAll(() => {
+    beforeEach(() => {
         req = {
             body: {},
         };
