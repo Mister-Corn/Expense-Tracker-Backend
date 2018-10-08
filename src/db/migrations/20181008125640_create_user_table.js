@@ -5,11 +5,16 @@ exports.up = function(knex) {
 
     table
       .string('username', 128)
+      .notNullable()
+      .unique();
+    
+    table
+      .string('password', 64)
       .notNullable();
     
     table
-        .timestamp('createdAt')
-        .defaultTo(knex.fn.now());
+      .timestamp('createdAt')
+      .defaultTo(knex.fn.now());
   });
 };
 
