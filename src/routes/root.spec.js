@@ -1,44 +1,48 @@
-const root = require('./root');
-const HTTPstatus = require('../utils/HTTPstatus');
-
 /* Resources:
 https://medium.com/@jodylecompte/express-routes-a-tdd-approach-1e12a0799352
 https://stackoverflow.com/a/28053280
 */
 
-// Mocking req & res objects
-let req = {
-    body: {},
-};
-
-let res = {
-    sendCalledWith: '',
-    sendStatusWith: '',
-    sendJSONwith: {},
-    json: function(arg) {
-        this.sendJSONwith = arg;
-    },
-    send: function(arg) {
-        this.sendCalledWith = arg;
-    },
-    status: function(arg) {
-        this.sendStatusWith = arg;
-        return this;
-    },
-};
+const root = require('./root');
+const HTTPstatus = require('../utils/HTTPstatus');
 
 // Testing starts here:
 describe('root ROUTES:', () => {
+
+    // Mocking req & res objects
+    let req;
+    let res;
+    beforeAll(() => {
+        req = {
+            body: {},
+        };
+        res = {
+            sendCalledWith: '',
+            sendStatusWith: '',
+            sendJSONwith: {},
+            json: function(obj) {
+                this.sendJSONwith = obj;
+            },
+            send: function(arg) {
+                this.sendCalledWith = arg;
+            },
+            status: function(statusCode) {
+                this.sendStatusWith = statusCode;
+                return this; // allows chaining
+            // e.g. res.status(200).json({msg:'OK'}); is testable
+            },
+        };
+    });
 
     it('Tests are testing.', () => {
         expect('sanity check').toBe('sanity check');
         expect(true).toBeTruthy();
     });
 
-    it('Server accepts requests at root.', async() => {
+    it('Root GET handler sends an appropriate response.', () => {
+        // Act
         root.GET(req, res);
-        console.log('response object: ', res);
-
+        // Assert
         const { sendStatusWith, sendJSONwith } = res;
         expect(sendStatusWith).toBe(HTTPstatus.OK);
         expect(sendJSONwith).toMatchObject({ msg: 'Api is running!' });
